@@ -11,16 +11,13 @@ public class StartMenu extends JFrame{
 	private StartButtonHandler startButtonHandler;
 	
 	public StartMenu(){
-		title=new JLabel("Welcome to Ticket to Ride!");
+		title=new JLabel("Ticket to Ride");
 		startButton=new JButton("Start Game");
 		startButtonHandler = new StartButtonHandler();
 		
 		startButton.addActionListener(startButtonHandler);
 		
-		add(title);
-		add(startButton);
-		
-		setTitle("Ticket to Ride");
+		setTitle("CSSE376");
 		setSize(HEIGHT,WIDTH);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -30,6 +27,6 @@ public class StartMenu extends JFrame{
 
 class StartButtonHandler implements ActionListener{
 	public void actionPerformed(ActionEvent e){
-		MainGame game = new MainGame();
+		//will start game
 	}
 }

@@ -1,0 +1,9 @@
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+
+public class MainGame extends JFrame {
+	private JLabel label;
+	private static final int HEIGHT=500;
+	private static final int WIDTH=500;
+}

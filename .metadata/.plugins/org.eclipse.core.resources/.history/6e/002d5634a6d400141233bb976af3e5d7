@@ -30,6 +30,6 @@ public class StartMenu extends JFrame{
 
 class StartButtonHandler implements ActionListener{
 	public void actionPerformed(ActionEvent e){
-		MainGame game = new MainGame();
+		//will start game
 	}
 }

@@ -1,3 +1,4 @@
+import DisplayableBinaryTree.treeComponent;
 
 
 public class Main {
