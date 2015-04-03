@@ -6,7 +6,7 @@ public class TestCard implements ICard {
 	public TestCard(int id) {
 		this.cardID = id;
 	}
-	@Override
+	
 	public int getID() {
 		return this.cardID;
 	}
