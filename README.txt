@@ -8,5 +8,8 @@ Each player should be dealt three destination cards.
 
 
 Turn:
+Player can draw one card from either face down or face up deck.
+Player can play train cards.
+Player can claim routes.
 
 End game:
