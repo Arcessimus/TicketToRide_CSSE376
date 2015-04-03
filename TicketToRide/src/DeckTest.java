@@ -9,6 +9,8 @@ public class DeckTest {
 	public void testInit() {
 		Deck main = new Deck();
 		assertNotNull(main);
+		
+		assertEquals(main.getSize(), 5);
 	}
 
 	@Test
