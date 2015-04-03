@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class Deck {
@@ -25,51 +26,7 @@ public class Deck {
 	}
 
 	public void shuffle() {
-		ArrayList<ICard> tempDeck;
-		
-		for(int i = 0; i < 3; i++) {
-			tempDeck = new ArrayList<ICard>();
-			
-			for(int j = 0; j < this.deck.size(); j++) {
-				int random = (int)(Math.random()*this.deck.size());
-				tempDeck.add(this.deck.get(random));
-			}
-			
-			this.deck = tempDeck;
-		}
-		
-		if(this.inOrder()) {
-			this.shuffle();
-		}
-		
-		if(this.inReverseOrder()) {
-			this.shuffle();
-		}
-	}
-
-	private boolean inReverseOrder() {
-		boolean inOrder = true;
-		
-		for(int i = 0; i < this.getSize() - 1; i++) {
-			if(this.getCard(i).getID() < this.getCard(i+1).getID()) {
-				inOrder = false;
-				break;
-			}
-		}
-		
-		return inOrder;
-	}
-
-	private boolean inOrder() {
-		boolean inOrder = true;
-		
-		for(int i = 0; i < this.getSize() - 1; i++) {
-			if(this.getCard(i).getID() > this.getCard(i+1).getID()) {
-				inOrder = false;
-				break;
-			}
-		}
-		return inOrder;
+		Collections.shuffle(this.deck);
 	}
 
 	public int getSize() {
