@@ -6,8 +6,11 @@ import org.junit.Test;
 public class PlayerTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testConstructor() {
+		Player test = new Player();
+		assertNotNull(test);
 	}
+	
+	
 
 }
