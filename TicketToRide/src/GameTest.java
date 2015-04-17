@@ -19,8 +19,8 @@ public class GameTest {
 		Game game =new Game(0);
 		assertEquals(game.players,2);
 		
-		Game game1 =new Game(0);
-		assertEquals(game1.players,7);
+		Game game1 =new Game(7);
+		assertEquals(game1.players,2);
 	}
 	
 }
