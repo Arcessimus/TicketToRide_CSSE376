@@ -1,3 +1,12 @@
+Timeline:
+Week 6 - Drawing a card
+Week 7 - Playing a card
+Week 8 - Full turn
+Week 9 - End game
+
+
+
+
 Main menu:
 Choose number of players
 Start game
