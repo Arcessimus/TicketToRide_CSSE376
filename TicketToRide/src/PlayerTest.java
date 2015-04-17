@@ -18,7 +18,7 @@ public class PlayerTest {
 		Deck deck =new Deck();
 		player.drawCardHand(deck);
 		
-		assertEquals(player.cards.size(),4);
+		assertEquals(4,player.cards.size());
 	}
 	
 	@Test
@@ -27,6 +27,6 @@ public class PlayerTest {
 		Deck deck =new Deck();
 		player.drawTicketHand(deck);
 		
-		assertEquals(player.tickets.size(),3);
+		assertEquals(3,player.tickets.size());
 	}
 }
