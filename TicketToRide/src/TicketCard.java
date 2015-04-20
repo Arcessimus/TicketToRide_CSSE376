@@ -1,9 +1,9 @@
 
-public class Ticket implements ICard {
+public class TicketCard implements ICard {
 
 	int cardID;
 	
-	public Ticket(){
+	public TicketCard(){
 		
 	}
 	

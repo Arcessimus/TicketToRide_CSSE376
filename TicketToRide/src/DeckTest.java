@@ -1,4 +1,5 @@
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 public class DeckTest {	
@@ -56,5 +57,25 @@ public class DeckTest {
 		cursize = test.getSize();
 		assertEquals(expsize, cursize);
 
+	}
+	@Test
+	public void testMakeTrainDeck(){
+		final int CARD_COUNT=12;
+		final int WILD_CARD_COUNT=14;
+		
+		Deck deck = new Deck();
+		assertEquals(110,deck.getSize());
+		int i=0;
+		for (TrainCard.CARD_TYPE type : TrainCard.CARD_TYPE.values()){
+			int cards;
+			if(type==TrainCard.CARD_TYPE.WILD){
+				cards=WILD_CARD_COUNT;
+			}else{
+				cards=CARD_COUNT;
+			}
+			for(;i<cards;i++){
+				assertEquals(type,((TrainCard)deck.getCard(i)).cardType);
+			}
+		}
 	}
 }
