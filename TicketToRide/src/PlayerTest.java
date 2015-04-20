@@ -9,7 +9,7 @@ public class PlayerTest {
 	public void testConstructor() {
 		Player player = new Player();
 		assertNotNull(player);
-		assertEquals(player.trainCars,45);
+		assertEquals(45, player.trainCars);
 	}
 	
 	@Test

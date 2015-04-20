@@ -10,7 +10,7 @@ public class Game {
 	
 	//Sets players 1-6, else default
 	public Game(int playerNumber) {
-		if(playerNumber>0 && playerNumber<7){
+		if(playerNumber>1 && playerNumber<6){
 			players=playerNumber;
 		}else{
 			players=2;

@@ -1,21 +1,47 @@
-import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-
-public class MainGame extends JFrame {
+public class MainGame extends JPanel {
 	private JLabel label;
-	private static final int HEIGHT=500;
-	private static final int WIDTH=500;
-	
-	public MainGame(){
-		label=new JLabel("Welcome to Ticket to Ride!");
-		
+	private static final int HEIGHT = 720;
+	private static final int WIDTH = 1040;
+	private Graphics2D g2;
+	private Image background = null;
+
+	public MainGame(StartMenu frame) {
+		frame.setSize(WIDTH, HEIGHT);
+
+		try {
+			this.background = ImageIO.read(new File(
+					"src/Ticket To Ride Board.jpg"));
+		} catch (IOException ex) {
+			System.out.println("Where's the background?");
+		}
+
+		label = new JLabel(frame.players + " Players ");
+		label.setOpaque(true);
 		add(label);
-		
-		setTitle("Game");
-		setSize(HEIGHT,WIDTH);
-		setVisible(true);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
+
+		Game game = new Game(frame.players);
+		playerTurn(1); //Starts with player 1
+	}
+
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g2 = (Graphics2D) g;
+		g2.drawImage(background, 0, 0, null);
+	}
+	
+	//
+	public void playerTurn(int playerNumber){
+		//Display Player Panel
 	}
 }
