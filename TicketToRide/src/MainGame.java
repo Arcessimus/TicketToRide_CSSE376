@@ -2,10 +2,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -15,6 +18,7 @@ public class MainGame extends JPanel {
 	private static final int WIDTH = 1040;
 	private Graphics2D g2;
 	private Image background = null;
+	private JButton trainDeck;
 
 	public MainGame(StartMenu frame) {
 		frame.setSize(WIDTH, HEIGHT);
@@ -44,4 +48,12 @@ public class MainGame extends JPanel {
 	public void playerTurn(int playerNumber){
 		//Display Player Panel
 	}
+}
+
+class deckListener implements ActionListener {
+
+	public void actionPerformed(ActionEvent arg0) {
+		//something something draw card
+	}
+	
 }
