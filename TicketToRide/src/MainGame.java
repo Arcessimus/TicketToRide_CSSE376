@@ -54,6 +54,8 @@ class deckListener implements ActionListener {
 
 	public void actionPerformed(ActionEvent arg0) {
 		//something something draw card
+		JLabel drawLabel = new JLabel("Card drawn!");
+		drawLabel.setOpaque(true);
 	}
 	
 }
