@@ -15,6 +15,4 @@ public class TrainCardTest {
 		assertEquals(type,card.cardType);
 		}
 	}
-	
-	
 }
