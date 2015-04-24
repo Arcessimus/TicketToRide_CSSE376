@@ -1818,4 +1818,82 @@
 </HierarchyLvl>
 </HierarchyLvl>
 </MASTRoot>
+<TestSession Comment="" Date="1429884130128" Name="Apr 24, 2015 10:02:10 AM">
+<TestCase Comment="This is a test case containing all coverage results cause no startTestCase methods where captured." Date="1429884121815" Name="UNNAMED TESTCASE">
+<CovList>
+<CovPrefix CovItemPrefix="Game.java">
+<Cov CovItemId="B1" Value="1"/>
+<Cov CovItemId="S2" Value="1"/>
+<Cov CovItemId="S3" Value="1"/>
+</CovPrefix>
+<CovPrefix CovItemPrefix="Main.java">
+<Cov CovItemId="S1" Value="1"/>
+</CovPrefix>
+<CovPrefix CovItemPrefix="MainGame.java">
+<Cov CovItemId="B1" Value="1"/>
+<Cov CovItemId="S1" Value="1"/>
+<Cov CovItemId="S10" Value="1"/>
+<Cov CovItemId="S11" Value="1"/>
+<Cov CovItemId="S12" Value="1"/>
+<Cov CovItemId="S13" Value="1"/>
+<Cov CovItemId="S14" Value="1"/>
+<Cov CovItemId="S15" Value="1"/>
+<Cov CovItemId="S2" Value="1"/>
+<Cov CovItemId="S3" Value="1"/>
+<Cov CovItemId="S4" Value="1"/>
+<Cov CovItemId="S5" Value="1"/>
+<Cov CovItemId="S6" Value="1"/>
+<Cov CovItemId="S8" Value="1"/>
+<Cov CovItemId="S9" Value="1"/>
+</CovPrefix>
+<CovPrefix CovItemPrefix="StartMenu.java">
+<Cov CovItemId="B1" Value="1"/>
+<Cov CovItemId="L1-2" Value="1"/>
+<Cov CovItemId="S1" Value="1"/>
+<Cov CovItemId="S10" Value="1"/>
+<Cov CovItemId="S11" Value="1"/>
+<Cov CovItemId="S12" Value="1"/>
+<Cov CovItemId="S13" Value="1"/>
+<Cov CovItemId="S14" Value="1"/>
+<Cov CovItemId="S16" Value="1"/>
+<Cov CovItemId="S17" Value="4"/>
+<Cov CovItemId="S18" Value="1"/>
+<Cov CovItemId="S19" Value="1"/>
+<Cov CovItemId="S2" Value="1"/>
+<Cov CovItemId="S20" Value="1"/>
+<Cov CovItemId="S21" Value="4"/>
+<Cov CovItemId="S22" Value="4"/>
+<Cov CovItemId="S23" Value="4"/>
+<Cov CovItemId="S24" Value="4"/>
+<Cov CovItemId="S25" Value="4"/>
+<Cov CovItemId="S26" Value="4"/>
+<Cov CovItemId="S27" Value="1"/>
+<Cov CovItemId="S28" Value="1"/>
+<Cov CovItemId="S3" Value="1"/>
+<Cov CovItemId="S4" Value="1"/>
+<Cov CovItemId="S5" Value="1"/>
+<Cov CovItemId="S6" Value="1"/>
+<Cov CovItemId="S7" Value="1"/>
+<Cov CovItemId="S8" Value="1"/>
+<Cov CovItemId="S9" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="Game.java">
+<AssgnmntListEntry Length="2" RootTermCovItemId="C1">
+<MapEntry BoolAssgnmnt="11" Value="1"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+<AssgnmntPrefix RootTermCovItemPrefix="StartMenu.java">
+<AssgnmntListEntry Length="1" RootTermCovItemId="C1">
+<MapEntry BoolAssgnmnt="0" Value="1"/>
+<MapEntry BoolAssgnmnt="1" Value="4"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList/>
+</TestCase>
+<MetaDataList/>
+</TestSession>
 </TestSessionContainer>
