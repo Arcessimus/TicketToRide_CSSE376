@@ -1,4 +1,7 @@
+package TicketToRideTest;
 import static org.junit.Assert.*;
+import Deck;
+import Player;
 
 import org.junit.Test;
 

@@ -1,4 +1,7 @@
+package TicketToRideTest;
 import static org.junit.Assert.*;
+import Game;
+
 import org.junit.Test;
 
 public class GameTest {
