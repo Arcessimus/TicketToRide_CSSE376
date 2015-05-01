@@ -1,3 +1,4 @@
+package TicketToRideMain;
 
 public class Game {
 	

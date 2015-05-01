@@ -1,3 +1,4 @@
+package TicketToRideMain;
 import java.util.Stack;
 
 public class Player {
@@ -26,5 +27,17 @@ public class Player {
 		for(int i=0;i<STARTING_TICKET_HAND_SIZE;i++){
 			cards.add(ticketDeck.draw());
 		}
+	}
+	
+	//drawing individual cards
+	public void drawCard(Deck deck) {
+		ICard newCard = deck.draw();
+		
+		//add card to correct hand depending on card type
+	}
+	
+	//playing a card
+	public void playCard(Stack<ICard> hand, int cardIndex) {
+		//based on hand and card type, put train cars down, etc.
 	}
 }

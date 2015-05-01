@@ -1,9 +1,10 @@
 package TicketToRideTest;
 import static org.junit.Assert.*;
-import Deck;
-import Player;
 
 import org.junit.Test;
+
+import TicketToRideMain.Deck;
+import TicketToRideMain.Player;
 
 
 public class PlayerTest {

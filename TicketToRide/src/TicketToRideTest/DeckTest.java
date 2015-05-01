@@ -1,11 +1,10 @@
 package TicketToRideTest;
 import static org.junit.Assert.*;
-import Deck;
-import TrainCard;
 
 import org.junit.Test;
 
-import TrainCard.CARD_TYPE;
+import TicketToRideMain.Deck;
+import TicketToRideMain.TrainCard;
 
 public class DeckTest {	
 	

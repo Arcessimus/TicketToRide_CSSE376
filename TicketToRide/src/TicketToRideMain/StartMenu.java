@@ -1,3 +1,4 @@
+package TicketToRideMain;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -52,6 +53,7 @@ public class StartMenu extends JFrame {
 			}
 		}
 
+		@Override
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			g2 = (Graphics2D) g;

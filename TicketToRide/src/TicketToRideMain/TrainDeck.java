@@ -1,3 +1,4 @@
+package TicketToRideMain;
 import java.util.ArrayList;
 
 
@@ -12,7 +13,7 @@ public class TrainDeck extends Deck {
 	}
 	
 	private void init() {
-		
+		//initialize all of the train cards and put them in the deck
 	}
 
 }

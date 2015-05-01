@@ -1,4 +1,4 @@
-import java.awt.Color;
+package TicketToRideMain;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -38,6 +38,7 @@ public class MainGame extends JPanel {
 		playerTurn(1); //Starts with player 1
 	}
 
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g2 = (Graphics2D) g;
