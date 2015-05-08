@@ -24,8 +24,9 @@ public class TrainDeckTest {
 			}else{
 				cards=CARD_COUNT;
 			}
-			for(;i<cards;i++){
+			for(int j=0;j<cards;j++){
 				assertEquals(type,((TrainCard)deck.getCard(i)).cardType);
+				i++;
 			}
 		}
 	}
