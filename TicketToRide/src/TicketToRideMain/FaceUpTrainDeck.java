@@ -12,7 +12,7 @@ public class FaceUpTrainDeck extends Deck {
 		this.faceDeck = new ArrayList<ICard>();
 	}
 	
-	private void init() {
+	protected void init() {
 		for(int i = 0; i < 5; i++) {
 			this.faceDeck.add(this.referenceDeck.draw());
 		}

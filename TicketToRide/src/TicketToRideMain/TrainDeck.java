@@ -3,16 +3,14 @@ import java.util.ArrayList;
 
 
 public class TrainDeck extends Deck {
-
-	ArrayList<TrainCard> deck;
 	
 	public TrainDeck() {
-		this.deck = new ArrayList<TrainCard>();
+		this.deck = new ArrayList<ICard>();
 		this.init();
 		//this.shuffle();
 	}
 	
-	private void init() {
+	protected void init() {
 		//initialize all of the train cards and put them in the deck
 		final int CARD_COUNT=12;
 		final int WILD_CARD_COUNT=14;

@@ -3,6 +3,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import TicketToRideMain.Deck;
 import TicketToRideMain.TrainCard;
 import TicketToRideMain.TrainDeck;
 

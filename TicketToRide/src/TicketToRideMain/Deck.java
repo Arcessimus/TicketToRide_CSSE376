@@ -5,14 +5,14 @@ import java.util.Collections;
 
 public class Deck {
 	
-	ArrayList<ICard> deck;
+	protected ArrayList<ICard> deck;
 	
 	public Deck() {
 		this.deck = new ArrayList<ICard>();
 		this.init();
 	}
 
-	private void init() {
+	protected void init() {
 		ICard testcard1 = new TestCard(1);
 		ICard testcard2 = new TestCard(2);
 		ICard testcard3 = new TestCard(3);
