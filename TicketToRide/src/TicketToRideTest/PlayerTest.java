@@ -29,7 +29,7 @@ public class PlayerTest {
 	public void testDrawTicketHand() {
 		Player player = new Player();
 		Deck deck =new Deck();
-		player.drawTicketHand(deck);
+		player.drawTicket(deck);
 		
 		assertEquals(3,player.tickets.size());
 	}

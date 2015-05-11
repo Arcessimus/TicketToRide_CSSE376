@@ -23,10 +23,10 @@ public class Player {
 		}
 	}
 	
-	public void drawTicketHand(Deck ticketDeck){
-		for(int i=0;i<STARTING_TICKET_HAND_SIZE;i++){
-			cards.add(ticketDeck.draw());
-		}
+	public void drawTicket(Deck ticketDeck){
+//		for(int i=0;i<STARTING_TICKET_HAND_SIZE;i++){
+//			cards.add(ticketDeck.draw());
+//		}
 	}
 	
 	//drawing individual cards
