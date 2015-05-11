@@ -24,7 +24,7 @@ public class TicketDeckTest {
 		//Points2
 		//etc...
 		
-		File inputFile = new File("src/TicketToRideMain/Test_Destination_List");
+		File inputFile = new File("src/TicketToRideMain/Test_Destination_List.txt");
 		Scanner scanner=null;
 		try {
 			scanner = new Scanner(inputFile);
@@ -38,8 +38,9 @@ public class TicketDeckTest {
 		for (int i=0;i<NUMBER_OF_CARDS;i++){
 			TicketCard card =  (TicketCard) deck.getCard(i);
 			assertEquals(scanner.nextLine(),card.label);
-			assertEquals((int) scanner.nextLong(),card.pointValue);
+			assertEquals(scanner.nextLine(),""+card.pointValue);
 		}
+		scanner.close();
 		
 	}
 }

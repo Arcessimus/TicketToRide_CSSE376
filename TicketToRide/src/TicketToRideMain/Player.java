@@ -23,14 +23,13 @@ public class Player {
 		}
 	}
 	
-	public void drawTicket(Deck ticketDeck){
-//		for(int i=0;i<STARTING_TICKET_HAND_SIZE;i++){
-//			cards.add(ticketDeck.draw());
-//		}
+	public void chooseTicket(TicketCard ticket){
+
 	}
 	
+	
 	//drawing individual cards
-	public void drawCard(Deck deck) {
+	public void drawTrainCard(Deck deck) {
 		ICard newCard = deck.draw();
 		
 		//add card to correct hand depending on card type

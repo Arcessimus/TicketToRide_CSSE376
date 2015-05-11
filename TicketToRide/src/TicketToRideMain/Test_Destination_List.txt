@@ -1,12 +1,12 @@
-Los Angeles to New York City
+Los Angeles to New York City 
 21
-Duluth to Houston
+Duluth to Houston 
 8
-Sault Ste Marie to Nashville
+Sault Ste Marie to Nashville 
 8
-New York to Atlanta
+New York to Atlanta 
 6
-Portland to Nashville
+Portland to Nashville 
 17
 Vancouver to Montréal
 20

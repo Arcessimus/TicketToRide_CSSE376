@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import TicketToRideMain.Deck;
 import TicketToRideMain.Player;
+import TicketToRideMain.TicketCard;
 
 
 public class PlayerTest {
@@ -26,11 +27,11 @@ public class PlayerTest {
 	}
 	
 	@Test
-	public void testDrawTicketHand() {
+	public void testChooseTicket() {
 		Player player = new Player();
-		Deck deck =new Deck();
-		player.drawTicket(deck);
-		
-		assertEquals(3,player.tickets.size());
+		TicketCard card =new TicketCard("Place",15);
+		player.chooseTicket(card);
+		assertNotNull(player.tickets);
+		assertEquals(1,player.tickets.size());
 	}
 }
