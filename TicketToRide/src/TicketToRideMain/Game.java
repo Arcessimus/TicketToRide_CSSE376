@@ -10,6 +10,7 @@ public class Game {
 	//Default Game is two players
 	public Game(){
 		playerNumber=2;
+		startGame();
 	}
 	
 	//Sets players 1-6, else default
@@ -19,8 +20,11 @@ public class Game {
 		}else{
 			playerNumber=2;
 		}
+		startGame();
 	}
-	public void StartGame(){
-
+	public void startGame(){
+		for(int i=0;i<playerNumber;i++){
+			players.add(new Player());
+		}
 	}
 }
