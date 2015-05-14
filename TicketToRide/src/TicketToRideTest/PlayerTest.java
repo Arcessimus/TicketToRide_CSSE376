@@ -6,6 +6,8 @@ import org.junit.Test;
 import TicketToRideMain.Deck;
 import TicketToRideMain.Player;
 import TicketToRideMain.TicketCard;
+import TicketToRideMain.TrainCard;
+import TicketToRideMain.TrainDeck;
 
 
 public class PlayerTest {
@@ -32,6 +34,20 @@ public class PlayerTest {
 		TicketCard card =new TicketCard("Place",15);
 		player.chooseTicket(card);
 		assertNotNull(player.tickets);
+		assertEquals(1,player.tickets.size());
+	}
+	@Test
+	public void testDrawTrainCard(){
+		Player player = new Player();
+		TrainDeck deck = new TrainDeck();
+		player.drawTrainCard(deck);
+		assertEquals(1, player.cards.size());
+	}
+	@Test
+	public void testChooseTrainCard() {
+		Player player = new Player();
+		TrainCard card =new TrainCard(TrainCard.CARD_TYPE.BLUE);
+		player.chooseTrainCard(card);
 		assertEquals(1,player.tickets.size());
 	}
 }

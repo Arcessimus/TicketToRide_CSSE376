@@ -36,7 +36,6 @@ public class TicketDeck extends Deck {
 			String label = scanner.nextLine();
 			String stringPoints =  scanner.nextLine();
 			int points =Integer.parseInt(stringPoints);
-			System.out.println(points);
 			TicketCard card =new TicketCard(label,points);
 			deck.add(card);
 		}
