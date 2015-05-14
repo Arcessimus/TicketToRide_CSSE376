@@ -2,8 +2,8 @@ Timeline:
 Week 6 - Drawing a card
 Week 7 - Playing a card
 Week 8 - Full turn
-Week 9 - End game
-
+Week 9 - Full turn
+Week 10- End game
 
 
 

@@ -1,20 +1,26 @@
 package TicketToRideMain;
 
+import java.util.ArrayList;
+
 public class Game {
 	
-	public int players;
+	public int playerNumber;
+	public ArrayList<Player> players = new ArrayList<Player>();
 	
 	//Default Game is two players
 	public Game(){
-		players=2;
+		playerNumber=2;
 	}
 	
 	//Sets players 1-6, else default
-	public Game(int playerNumber) {
-		if(playerNumber>1 && playerNumber<6){
-			players=playerNumber;
+	public Game(int newPlayerNumber) {
+		if(newPlayerNumber>1 && newPlayerNumber<6){
+			playerNumber=newPlayerNumber;
 		}else{
-			players=2;
+			playerNumber=2;
 		}
+	}
+	public void StartGame(){
+
 	}
 }

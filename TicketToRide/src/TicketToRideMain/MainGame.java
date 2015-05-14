@@ -20,6 +20,8 @@ public class MainGame extends JPanel {
 	private Image background = null;
 	private JButton trainDeck;
 
+	private final int INITIAL_TICKETS=2;
+	
 	public MainGame(StartMenu frame) {
 		frame.setSize(WIDTH, HEIGHT);
 
@@ -33,8 +35,11 @@ public class MainGame extends JPanel {
 		label = new JLabel(frame.players + " Players ");
 		label.setOpaque(true);
 		add(label);
-
+		
 		Game game = new Game(frame.players);
+		for (int i=0;i<frame.players;i++){
+			//ticketDraw(INITIAL_TICKETS);
+		}
 		playerTurn(1); //Starts with player 1
 	}
 
@@ -48,6 +53,11 @@ public class MainGame extends JPanel {
 	//
 	public void playerTurn(int playerNumber){
 		//Display Player Panel
+	}
+	public void ticketDraw(Player player, int minimumTicketsKept){
+		//turn on actionListener
+		//Game.tickets.draw x3
+		//Player.chooseTicket x minTickets
 	}
 }
 
