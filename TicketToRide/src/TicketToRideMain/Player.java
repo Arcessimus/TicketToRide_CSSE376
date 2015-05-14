@@ -25,24 +25,24 @@ public class Player {
 	
 	//Choosing face-up TicketCard
 	public void chooseTicket(TicketCard ticket){
-
+		tickets.add(ticket);
 	}
 	
 	
 	//Drawing random TrainCard from deck
 	public void drawTrainCard(Deck deck) {
 		ICard newCard = deck.draw();
-		
+		cards.add(newCard);
 	}
 	
 	//playing a card
 	public void playCard(Stack<ICard> hand, int cardIndex) {
 		//based on hand and card type, put train cars down, etc.
+		
 	}
 	
 	//Choosing face-up TrainCard
 	public void chooseTrainCard(TrainCard card) {
-		
-		
+		cards.add(card);
 	}
 }

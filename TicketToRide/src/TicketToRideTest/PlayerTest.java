@@ -48,6 +48,6 @@ public class PlayerTest {
 		Player player = new Player();
 		TrainCard card =new TrainCard(TrainCard.CARD_TYPE.BLUE);
 		player.chooseTrainCard(card);
-		assertEquals(1,player.tickets.size());
+		assertEquals(1,player.cards.size());
 	}
 }
