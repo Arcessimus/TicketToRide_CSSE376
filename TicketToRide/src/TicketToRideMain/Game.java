@@ -6,6 +6,8 @@ public class Game {
 	
 	public int playerNumber;
 	public ArrayList<Player> players = new ArrayList<Player>();
+	public TrainDeck trainDeck;
+	public TicketDeck ticketDeck;
 	
 	//Default Game is two players
 	public Game(){
