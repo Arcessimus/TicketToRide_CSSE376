@@ -29,5 +29,8 @@ public class GameTest {
 		Game game1 =new Game(6);
 		assertEquals(2,game1.playerNumber);
 		assertEquals(2,game.players.size());
+		
+		assertNotNull(game.ticketDeck);
+		assertNotNull(game.trainDeck);
 	}
 }
