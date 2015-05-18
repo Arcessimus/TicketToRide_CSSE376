@@ -5,7 +5,7 @@ package TicketToRideMain;
 public class Route {
 	
 	Player owner;
-	//some way of determining color of the route
+	String color;
 	int pointValue;
 	//the two cities that this route connects
 	
