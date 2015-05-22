@@ -12,7 +12,9 @@ import org.junit.runner.RunWith;
 					TrainCardTest.class, 
 					TrainDeckTest.class, 
 					RouteTests.class, 
-					CityTests.class})
+					FaceUpTrainDeckTest.class,
+					CityTests.class,
+					PathGraphTests.class})
 public class AllTests {
 	public static void main (String args[]) {
         org.junit.runner.JUnitCore.main("TicketToRideTest.AllTests");
