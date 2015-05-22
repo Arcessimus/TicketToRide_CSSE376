@@ -4,11 +4,15 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import TicketToRideMain.City;
+import TicketToRideMain.Deck;
+
 public class CityTests {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testInit() {
+		City NewYork = new City("New York City");
+		assertNotNull(NewYork);
 	}
 
 }

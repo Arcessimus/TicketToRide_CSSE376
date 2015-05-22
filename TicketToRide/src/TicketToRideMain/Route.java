@@ -17,7 +17,15 @@ public class Route {
 	int owned;
 	Route twin;
 	
-	public Route(City a, City b, int ptVal, String color, int length)
+	public Route() {
+		this.cities = new ArrayList<City>();
+		
+		this.pointValue = 0;
+		this.color = "none";
+		this.length = 1;
+	}
+	
+	public Route(City a, City b, int ptVal, String color, int length, boolean smallGame)
 	{
 		this.cities = new ArrayList<City>();
 		this.cities.add(a);
@@ -26,6 +34,11 @@ public class Route {
 		this.pointValue = ptVal;
 		this.color = color;
 		this.length = length;
+		
+		this.hasTwin = false;
+		this.owned = 0;
+		
+		this.smallGame = smallGame;
 	}
 	
 	public void setOwner(Player p) {
@@ -41,5 +54,52 @@ public class Route {
 		this.owned = i;
 	}
 	
+	public void setTwin(Route twin)
+	{
+		this.hasTwin = true;
+		this.twin = twin;
+		twin.hasTwin = true;
+		twin.twin = this;
+	}
+
+	public ArrayList<City> getCities() {
+		return this.cities;
+	}
+
+	public int getPoints() {
+		return this.pointValue;
+	}
+
+	public String getColor() {
+		return this.color;
+	}
+
+	public int getLength() {
+		return this.length;
+	}
+	
+	public Player getOwner()
+	{
+		return this.owner;
+	}
+
+
+	public int owned() {
+		return this.owned;
+	}
+
+	public boolean hasTwin() {
+		return this.hasTwin;
+	}
+	
+
+	public Route getTwin() {
+		return this.twin;
+	}
+
+	
+	public boolean isSmallGame() {
+		return this.smallGame;
+	}
 	
 }
