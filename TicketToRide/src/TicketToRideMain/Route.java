@@ -1,5 +1,6 @@
 package TicketToRideMain;
 
+import java.awt.Point;
 import java.util.ArrayList;
 
 
@@ -11,6 +12,7 @@ public class Route {
 	int pointValue; 
 	ArrayList<City> cities;
 	int length;
+	Point point;
 	
 	boolean hasTwin;
 	boolean smallGame;
@@ -108,6 +110,11 @@ public class Route {
 			return this.cities.get(1);
 		
 		return this.cities.get(0);
+	}
+	
+	public void setPoint(int x, int y)
+	{
+		this.point = new Point(x, y);
 	}
 	
 }

@@ -105,9 +105,11 @@ public class PathGraph {
 		
 		//single routes
 		Route one = new Route(Vancouver, Calgary, 4, "Grey", 3, smallGame);
+		one.setPoint(150, 80);
 		Vancouver.addEdge(one);
 		Calgary.addEdge(one);
 		Route two = new Route(Calgary, Seattle, 7, "Grey", 4, smallGame);
+		two.setPoint(200, 80);
 		Calgary.addEdge(two);
 		Seattle.addEdge(two);
 		Route three = new Route(Calgary, Helena, 7, "Grey", 4, smallGame);
