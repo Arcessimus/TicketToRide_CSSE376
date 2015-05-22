@@ -607,7 +607,27 @@ public class PathGraph {
 	
 	public Player longestPathOwner()
 	{
-		return null;
+		int longestPathLength = 0;
+		Player pathOwner = null;
+		int currentLongLength;
+		for(Player p : this.players)
+		{
+			currentLongLength = getLongestPathLength(p);
+			if(currentLongLength > longestPathLength)
+			{
+				longestPathLength = currentLongLength;
+				pathOwner = p;
+			}
+		}
+		
+		return pathOwner;
 	}
+
+	private int getLongestPathLength(Player p) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
 
 }
