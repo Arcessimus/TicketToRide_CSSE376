@@ -147,7 +147,6 @@ public class PathGraph {
 		Route fourtyone = new Route(Raleigh, Pittsburgh, 0, "", 0, true);
 		Route fourtytwo = new Route(Nashville, Pittsburgh, 0, "", 0, true);
 		Route fourtythree = new Route(Washington, Pittsburgh, 0, "", 0, true);
-		Route fourtyfour = new Route(Pittsburgh, NewYork, 0, "", 0, true);
 		Route fourtyfive = new Route(Pittsburgh, Toronto, 0, "", 0, true);
 		Route fourtysix = new Route(NewYork, Montreal, 0, "", 0, true);
 		Route fourtyseven = new Route(Montreal, SaultStMarie, 0, "", 0, true);
@@ -205,7 +204,6 @@ public class PathGraph {
 		this.routes.add(fourtyone);
 		this.routes.add(fourtytwo);
 		this.routes.add(fourtythree);
-		this.routes.add(fourtyfour);
 		this.routes.add(fourtyfive);
 		this.routes.add(fourtysix);
 		this.routes.add(fourtyseven);
@@ -221,7 +219,138 @@ public class PathGraph {
 		this.routes.add(fiftyseven);
 		
 		//double routes
-		Route fiftynine = new Route(LosAngeles, LasVegas, 0, "", 0, true);
+
+		Route fourtyfour = new Route(Pittsburgh, NewYork, 0, "", 0, true);
+		Route ninetyfive = new Route(Pittsburgh, NewYork, 0, "", 0, true);
+		fourtyfour.setTwin(ninetyfive);
+		this.routes.add(fourtyfour);
+		this.routes.add(ninetyfive);
+		
+		Route fiftynine = new Route(Vancouver, Seattle, 0, "", 0, true);
+		Route sixty = new Route(Vancouver, Seattle, 0, "", 0, true);
+		fiftynine.setTwin(sixty);
+		this.routes.add(fiftynine);
+		this.routes.add(sixty);
+		
+		Route sixtyone = new Route(Seattle, Portland, 0, "", 0, true);
+		Route sixtytwo = new Route(Seattle, Portland, 0, "", 0, true);
+		sixtyone.setTwin(sixtytwo);
+		this.routes.add(sixtyone);
+		this.routes.add(sixtytwo);
+		
+		Route sixtythree = new Route(Portland, SanFrancisco, 0, "", 0, true);
+		Route sixtyfour = new Route(Portland, SanFrancisco, 0, "", 0, true);
+		sixtythree.setTwin(sixtyfour);
+		this.routes.add(sixtythree);
+		this.routes.add(sixtyfour);
+		
+		Route sixtyfive = new Route(SaltLakeCity, SanFrancisco, 0, "", 0, true);
+		Route sixtysix = new Route(SaltLakeCity, SanFrancisco, 0, "", 0, true);
+		sixtyfive.setTwin(sixtysix);
+		this.routes.add(sixtyfive);
+		this.routes.add(sixtysix);
+		
+		Route sixtyseven = new Route(SaltLakeCity, Denver, 0, "", 0, true);
+		Route sixtyeight = new Route(SaltLakeCity, Denver, 0, "", 0, true);
+		sixtyseven.setTwin(sixtyeight);
+		this.routes.add(sixtyseven);
+		this.routes.add(sixtyeight);
+		
+		Route sixtynine = new Route(SanFrancisco, LosAngeles, 0, "", 0, true);
+		Route seventy = new Route(SanFrancisco, LosAngeles, 0, "", 0, true);
+		sixtynine.setTwin(seventy);
+		this.routes.add(sixtynine);
+		this.routes.add(seventy);
+		
+		Route seventyone = new Route(Houston, Dallas, 0, "", 0, true);
+		Route seventytwo = new Route(Houston, Dallas, 0, "", 0, true);
+		seventyone.setTwin(seventytwo);
+		this.routes.add(seventyone);
+		this.routes.add(seventytwo);
+		
+		Route seventythree = new Route(Dallas, OklahomaCity, 0, "", 0, true);
+		Route seventyfour = new Route(Dallas, OklahomaCity, 0, "", 0, true);
+		seventythree.setTwin(seventyfour);
+		this.routes.add(seventythree);
+		this.routes.add(seventyfour);
+		
+		Route seventyfive = new Route(NewOrleans, Atlanta, 0, "", 0, true);
+		Route seventysix = new Route(NewOrleans, Atlanta, 0, "", 0, true);
+		seventyfive.setTwin(seventysix);
+		this.routes.add(seventyfive);
+		this.routes.add(seventysix);
+		
+		Route seventyseven = new Route(Denver, KansasCity, 0, "", 0, true);
+		Route seventyeight = new Route(Denver, KansasCity, 0, "", 0, true);
+		seventyseven.setTwin(seventyeight);
+		this.routes.add(seventyseven);
+		this.routes.add(seventyeight);
+		
+		Route seventynine = new Route(OklahomaCity, KansasCity, 0, "", 0, true);
+		Route eighty = new Route(OklahomaCity, KansasCity, 0, "", 0, true);
+		seventynine.setTwin(eighty);
+		this.routes.add(seventynine);
+		this.routes.add(eighty);
+		
+		Route eightyone = new Route(StLouis, KansasCity, 0, "", 0, true);
+		Route eightytwo = new Route(StLouis, KansasCity, 0, "", 0, true);
+		eightyone.setTwin(eightytwo);
+		this.routes.add(eightyone);
+		this.routes.add(eightytwo);
+		
+		Route eightythree = new Route(StLouis, Chicago, 0, "", 0, true);
+		Route eightyfour = new Route(StLouis, Chicago, 0, "", 0, true);
+		eightythree.setTwin(eightyfour);
+		this.routes.add(eightythree);
+		this.routes.add(eightyfour);
+		
+		Route eightyfive = new Route(KansasCity, Omaha, 0, "", 0, true);
+		Route eightysix = new Route(KansasCity, Omaha, 0, "", 0, true);
+		eightyfive.setTwin(eightysix);
+		this.routes.add(eightyfive);
+		this.routes.add(eightysix);
+		
+		Route eightyseven = new Route(Omaha, Duluth, 0, "", 0, true);
+		Route eightyeight = new Route(Omaha, Duluth, 0, "", 0, true);
+		eightyseven.setTwin(eightyeight);
+		this.routes.add(eightyseven);
+		this.routes.add(eightyeight);
+		
+		Route eightynine = new Route(Atlanta, Raleigh, 0, "", 0, true);
+		Route ninety = new Route(Atlanta, Raleigh, 0, "", 0, true);
+		eightynine.setTwin(ninety);
+		this.routes.add(eightynine);
+		this.routes.add(ninety);
+		
+		Route ninetyone = new Route(Raleigh, Washington, 0, "", 0, true);
+		Route ninetytwo = new Route(Raleigh, Washington, 0, "", 0, true);
+		ninetyone.setTwin(ninetytwo);
+		this.routes.add(ninetyone);
+		this.routes.add(ninetytwo);
+		
+		Route ninetythree = new Route(Washington, NewYork, 0, "", 0, true);
+		Route ninetyfour = new Route(Washington, NewYork, 0, "", 0, true);
+		ninetythree.setTwin(ninetyfour);
+		this.routes.add(ninetythree);
+		this.routes.add(ninetyfour);
+		
+		Route ninetysix = new Route(Pittsburgh, Chicago, 0, "", 0, true);
+		Route ninetyseven = new Route(Pittsburgh, Chicago, 0, "", 0, true);
+		ninetysix.setTwin(ninetyseven);
+		this.routes.add(ninetysix);
+		this.routes.add(ninetyseven);
+		
+		Route ninetyeight = new Route(NewYork, Boston, 0, "", 0, true);
+		Route ninetynine = new Route(NewYork, Boston, 0, "", 0, true);
+		ninetyeight.setTwin(ninetynine);
+		this.routes.add(ninetyeight);
+		this.routes.add(ninetynine);
+		
+		Route onehundred = new Route(Boston, Montreal, 0, "", 0, true);
+		Route onehundredone = new Route(Boston, Montreal, 0, "", 0, true);
+		onehundred.setTwin(onehundredone);
+		this.routes.add(onehundred);
+		this.routes.add(onehundredone);
 		
 		// TODO adjust for number of players
 		
