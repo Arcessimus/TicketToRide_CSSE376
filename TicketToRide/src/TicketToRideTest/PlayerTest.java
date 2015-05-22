@@ -50,4 +50,16 @@ public class PlayerTest {
 		player.chooseTrainCard(card);
 		assertEquals(1,player.cards.size());
 	}
+	@Test
+	public void testCountCardTypes(){
+		Player player = new Player();
+		TrainCard card1=new TrainCard(TrainCard.CARD_TYPE.BLACK);
+		player.tickets.add(card1);
+		int[] array = new int[9];
+		for(int i : array){
+			i=0;
+		}
+		array[0]=1;
+		assertEquals(array,player.countCardTypes());
+	}
 }

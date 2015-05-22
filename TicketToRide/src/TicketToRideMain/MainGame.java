@@ -25,12 +25,12 @@ public class MainGame extends JPanel {
 	private static final int WIDTH = 1600; // 1040;
 	private Graphics2D g2;
 	private Image background = null;
-	
+
 	private TicketPanel ticketPanel = null;
 	private PlayerPanel playerPanel = null;
-	private PlayerTrainCards playerTrainCards=null;
-	private PlayerTicketCards playerTicketCards=null;
-	private TrainCardPanel trainCardPanel=null;
+	private PlayerTrainCards playerTrainCards = null;
+	private PlayerTicketCards playerTicketCards = null;
+	private TrainCardPanel trainCardPanel = null;
 
 	Game game;
 
@@ -85,13 +85,11 @@ public class MainGame extends JPanel {
 		}
 
 		game = new Game(frame.players);
-		
-		
-		
-		trainCardPanel=new TrainCardPanel();
+
+		trainCardPanel = new TrainCardPanel();
 		add(trainCardPanel);
 		trainCardPanel.setPosition();
-		
+
 		ticketDraw(INITIAL_TICKETS);
 		setLayout(null);
 	}
@@ -136,7 +134,7 @@ public class MainGame extends JPanel {
 		g2.drawImage(wildCar, 600, 780, null);
 		g2.drawImage(yellowCar, 800, 685, null);
 	}
-	
+
 	public void ticketDraw(int minimumTicketsKept) {
 		int playerNumber = game.playerTurn % game.playerNumber;
 		ticketPanel = new TicketPanel(game.players.get(playerNumber),
@@ -146,7 +144,11 @@ public class MainGame extends JPanel {
 		game.ticketDrawTurn--;
 		game.playerTurn++;
 	}
-	
+
+	public void claimRoute() {
+
+	}
+
 	public void playerTurn() {
 		// Display Player Panels
 		int playerNumber = game.playerTurn % game.playerNumber;
@@ -198,8 +200,10 @@ public class MainGame extends JPanel {
 			JLabel turnInstruction = new JLabel("Choose Action");
 			add(turnInstruction);
 			JButton drawTrainCards = new JButton("Draw Train Car Cards");
+			drawTrainCards.addActionListener(new drawTrainCardsHandler());
 			add(drawTrainCards);
 			JButton claimRoute = new JButton("Claim a Route");
+			claimRoute.addActionListener(new claimRouteHandler());
 			add(claimRoute);
 			JButton drawTicketCards = new JButton("Draw Destination Tickets");
 			drawTicketCards.addActionListener(new drawTicketCardsHandler());
@@ -229,8 +233,8 @@ public class MainGame extends JPanel {
 
 		class drawTrainCardsHandler implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
-				// disableAllComponents();
-				// TrainDrawMethod;
+				disableAllComponents();
+				trainCardPanel.startDraw(player);
 			}
 		}
 
@@ -248,9 +252,9 @@ public class MainGame extends JPanel {
 		public PlayerTrainCards(Player currentPlayer) {
 			player = currentPlayer;
 			this.setOpaque(false);
-			this.setLayout(new GridLayout(0, 5, 152, 70));
+			this.setLayout(new GridLayout(0, 5, 146, 70));
 			for (int i = 0; i < 9; i++) {
-				JButton cardCount = new JButton("x" + 0);
+				JButton cardCount = new JButton("x" + 1);
 				// cardCount.addActionListener(cardCountHandler);
 				add(cardCount);
 			}
@@ -258,7 +262,7 @@ public class MainGame extends JPanel {
 
 		public void setPosition() {
 			Dimension size = getPreferredSize();
-			setBounds(150, 720, size.width, size.height);
+			setBounds(145, 720, size.width, size.height);
 			repaint();
 			this.getParent().repaint();
 			updateUI();
@@ -366,21 +370,30 @@ public class MainGame extends JPanel {
 	}
 
 	class TrainCardPanel extends JPanel {
-		TrainCardPanel(){
+		Player player;
+		int counter;
+		JButton[] buttonArray = new JButton[5];
+		TrainCardPanel() {
 			this.setLayout(new GridLayout(0, 1));
 			JLabel label = new JLabel("Face Up Train Cards:");
 			add(label);
-			for(ICard card : game.faceUpDeck.faceDeck){
-				JButton button = new JButton(((TrainCard)card).cardType.toString());
-				//actionListener
+			int i = 0;
+			for (ICard card : game.faceUpDeck.faceDeck) {
+				JButton button = new JButton(
+						((TrainCard) card).cardType.toString());
+				button.addActionListener(new drawHandler(i));
 				add(button);
+				buttonArray[i]=button;
+				i++;
 			}
 			JLabel blindDraw = new JLabel("Blind Draw:");
 			add(blindDraw);
-			JButton button = new JButton();
-			//actionListener
+			JButton button = new JButton("Deck");
+			button.addActionListener(new blindDrawHandler());
 			add(button);
+			disableAllComponents();
 		}
+
 		public void setPosition() {
 			Dimension size = getPreferredSize();
 			setBounds(1100, 20, size.width, size.height);
@@ -388,6 +401,84 @@ public class MainGame extends JPanel {
 			this.getParent().repaint();
 			updateUI();
 		}
+
+		public void disableAllComponents() {
+			for (Component comp : this.getComponents()) {
+				comp.setEnabled(false);
+			}
+		}
+
+		public void enableAllComponents() {
+			for (Component comp : this.getComponents()) {
+				comp.setEnabled(true);
+			}
+		}
+
+		public void startDraw(Player currentPlayer) {
+			player = currentPlayer;
+			counter = 2;
+			enableAllComponents();
+		}
+
+		public void checkEndTurn() {
+			if (counter == 0) {
+				game.playerTurn++;
+				disableAllComponents();
+				nextTurn();
+			}
+		}
+		
+		public void updateDeck(int index){
+			player.chooseTrainCard((TrainCard) game.faceUpDeck
+					.draw(index));
+			remove(buttonArray[index]);
+			TrainCard card=(TrainCard)game.faceUpDeck.faceDeck.get(index);
+			JButton button = new JButton(((TrainCard)card).cardType.toString());
+			button.addActionListener(new drawHandler(index));
+			add(button,index+1);
+			buttonArray[index]=button;
+			repaint();
+			updateUI();
+		}
+		
+		class blindDrawHandler implements ActionListener {
+			public void actionPerformed(ActionEvent e) {
+				counter--;
+				player.chooseTrainCard((TrainCard) game.trainDeck.draw());
+				checkEndTurn();
+			}
+
+		}
+
+		class drawHandler implements ActionListener {
+			int index;
+
+			public drawHandler(int cardPosition) {
+				index = cardPosition;
+			}
+
+			public void actionPerformed(ActionEvent e) {
+				TrainCard card = (TrainCard) game.faceUpDeck.faceDeck
+						.get(index);
+				if (counter == 2) {
+					if (card.cardType == TrainCard.CARD_TYPE.WILD) {
+
+						counter -= 2;
+					} else {
+						counter--;
+					}
+					updateDeck(index);
+				} else {
+					if (card.cardType == TrainCard.CARD_TYPE.WILD) {
+						// Do Nothing
+					} else {
+					updateDeck(index);
+						counter--;
+					}
+				}
+				checkEndTurn();
+			}
+
+		}
 	}
 }
-

@@ -45,4 +45,7 @@ public class Player {
 	public void chooseTrainCard(TrainCard card) {
 		cards.add(card);
 	}
+	public int[] countCardTypes(){
+		return null;
+	}
 }
