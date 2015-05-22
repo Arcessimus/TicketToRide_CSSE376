@@ -6,10 +6,12 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
@@ -17,6 +19,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import TicketToRideMain.StartMenu.StartButtonHandler;
 
 public class MainGame extends JPanel {
 	private JLabel label;
@@ -27,8 +31,8 @@ public class MainGame extends JPanel {
 	private TicketPanel ticketPanel = null;
 	private PlayerPanel playerPanel = null;
 	private PlayerTrainCards playerTrainCards;
-	//private PlayerTicketCards playerTicketCards;
-	
+	private PlayerTicketCards playerTicketCards;
+
 	Game game;
 
 	private final int INITIAL_TICKETS = 2;
@@ -48,7 +52,6 @@ public class MainGame extends JPanel {
 	Image greenTrain = null;
 	Image yellowTrain = null;
 	Image whiteTrain = null;
-	
 
 	public MainGame(StartMenu frame) {
 		frame.setSize(WIDTH, HEIGHT);
@@ -92,14 +95,22 @@ public class MainGame extends JPanel {
 	}
 
 	public void nextTurn() {
-		if(ticketPanel!=null){
+		if (ticketPanel != null) {
 			remove(ticketPanel);
 		}
 		ticketPanel = null;
-		if(playerPanel!=null){
+		if (playerPanel != null) {
 			remove(playerPanel);
 		}
-		playerPanel=null;
+		playerPanel = null;
+		if (playerTicketCards != null) {
+			remove(playerTicketCards);
+		}
+		playerTicketCards = null;
+		if (playerTrainCards != null) {
+			remove(playerTrainCards);
+		}
+		playerTrainCards = null;
 		repaint();
 		if (game.ticketDrawTurn > 0) {
 			ticketDraw(INITIAL_TICKETS);
@@ -141,26 +152,36 @@ public class MainGame extends JPanel {
 		} else if (playerNumber == 4) {
 			playerCar = whiteTrain;
 		}
-		playerPanel = new PlayerPanel(game.players.get(playerNumber), playerNumber);
+		playerPanel = new PlayerPanel(game.players.get(playerNumber),
+				playerNumber);
 		add(playerPanel);
 		playerPanel.setPosition();
+
 		playerTrainCards = new PlayerTrainCards(game.players.get(playerNumber));
 		add(playerTrainCards);
-		//playerTrainCards.setPosition();
-		//JButton button = new JButton(new ImageIcon(playerCar));
-		//button.setBorder(BorderFactory.createEmptyBorder());
-		//button.setContentAreaFilled(false);
-		// add actionListener
-		//add(button);
-		
+		playerTrainCards.setPosition();
+
+		playerTicketCards = new PlayerTicketCards(
+				game.players.get(playerNumber));
+		add(playerTicketCards);
+		playerTicketCards.setPosition();
+
+		// JButton button = new JButton(new ImageIcon(playerCar));
+		// button.setBorder(BorderFactory.createEmptyBorder());
+		// button.setContentAreaFilled(false);
+		// addActionListener
+		// add(button);
+
 		// decrement game.turn in a later method
 	}
-	class PlayerPanel extends JPanel{
+
+	class PlayerPanel extends JPanel {
 		Player player;
-		public PlayerPanel(Player currentPlayer, int playerNumber){
+
+		public PlayerPanel(Player currentPlayer, int playerNumber) {
 			player = currentPlayer;
 			this.setLayout(new GridLayout(0, 1));
-			JLabel playerIndex = new JLabel("Player " + (playerNumber+1));
+			JLabel playerIndex = new JLabel("Player " + (playerNumber + 1));
 			add(playerIndex);
 			JLabel turnInstruction = new JLabel("Choose Action");
 			add(turnInstruction);
@@ -171,14 +192,8 @@ public class MainGame extends JPanel {
 			JButton drawTicketCards = new JButton("Draw Destination Tickets");
 			drawTicketCards.addActionListener(new drawTicketCardsHandler());
 			add(drawTicketCards);
-			JLabel currentTickets = new JLabel("Current Destinations");
-			add(currentTickets);
-			for (ICard ticket : player.tickets){
-				String label=((TicketCard)ticket).label+ ":  " +((TicketCard)ticket).pointValue +" Points";
-				JButton destination=new JButton(label);
-				add (destination);
-			}
 		}
+
 		public void setPosition() {
 			Dimension size = getPreferredSize();
 			setBounds(650, 685, size.width, size.height);
@@ -186,36 +201,84 @@ public class MainGame extends JPanel {
 			this.getParent().repaint();
 			updateUI();
 		}
-		public void disableAllComponents(){
-			for(Component comp : this.getComponents()){
+
+		public void disableAllComponents() {
+			for (Component comp : this.getComponents()) {
 				comp.setEnabled(false);
 			}
 		}
-		class drawTicketCardsHandler implements ActionListener{
+
+		class drawTicketCardsHandler implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				disableAllComponents();
 				ticketDraw(1);
 			}
 		}
-		class drawTrainCardsHandler implements ActionListener{
+
+		class drawTrainCardsHandler implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
-				//disableAllComponents();
-				//TrainDrawMethod;
+				// disableAllComponents();
+				// TrainDrawMethod;
 			}
 		}
-		class claimRouteHandler implements ActionListener{
+
+		class claimRouteHandler implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
-				//disableAllComponents();
-				//claimRouteMethod;
+				// disableAllComponents();
+				// claimRouteMethod;
 			}
 		}
 	}
-	class PlayerTrainCards extends JPanel{
+
+	class PlayerTrainCards extends JPanel {
 		Player player;
-		public PlayerTrainCards(Player currentPlayer){
-			player=currentPlayer;
-			this.setLayout(null);
-			
+
+		public PlayerTrainCards(Player currentPlayer) {
+			player = currentPlayer;
+			this.setOpaque(false);
+			this.setLayout(new GridLayout(3, 3, 152, 70));
+			for (int i = 0; i < 9; i++) {
+				JButton cardCount = new JButton("x" + 0);
+				// cardCount.addActionListener(cardCountHandler);
+				add(cardCount);
+			}
+		}
+
+		public void setPosition() {
+			Dimension size = getPreferredSize();
+			setBounds(150, 720, size.width, size.height);
+			repaint();
+			this.getParent().repaint();
+			updateUI();
+		}
+	}
+
+	class PlayerTicketCards extends JPanel {
+		Player player;
+		ArrayList<JButton> cardButtons = new ArrayList<JButton>();
+
+		public PlayerTicketCards(Player currentPlayer) {
+			player = currentPlayer;
+			this.setLayout(new GridLayout(0, 1));
+			JLabel currentTickets = new JLabel("Current Destinations");
+			add(currentTickets);
+			for (ICard ticket : player.tickets) {
+				String label = ((TicketCard) ticket).label + ":  "
+						+ ((TicketCard) ticket).pointValue + " Points";
+				JButton destination = new JButton(label);
+				// destination.addActionListener();
+				// destination.setEnabled(false);
+				cardButtons.add(destination);
+				add(destination);
+			}
+		}
+
+		public void setPosition() {
+			Dimension size = getPreferredSize();
+			setBounds(900, 685, size.width, size.height);
+			repaint();
+			this.getParent().repaint();
+			updateUI();
 		}
 	}
 
@@ -242,7 +305,8 @@ public class MainGame extends JPanel {
 			add(instructionLabel);
 			for (int i = 0; i < 3; i++) {
 				TicketCard ticket = (TicketCard) game.ticketDeck.draw();
-				JButton button = new JButton(ticket.label+":  "+ticket.pointValue +" Points");
+				JButton button = new JButton(ticket.label + ":  "
+						+ ticket.pointValue + " Points");
 				button.addActionListener(new TicketButtonHandler(player,
 						ticket, this, i));
 				buttons[i] = button;
@@ -290,11 +354,12 @@ public class MainGame extends JPanel {
 				panel.choseTicket(index);
 			}
 		}
-		class DoneButtonHandler implements ActionListener{
+
+		class DoneButtonHandler implements ActionListener {
 			public void actionPerformed(ActionEvent arg0) {
 				nextTurn();
 			}
-			
+
 		}
 	}
 }
