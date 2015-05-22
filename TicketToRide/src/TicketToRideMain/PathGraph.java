@@ -88,6 +88,16 @@ public class PathGraph {
 		this.cities.add(Winnipeg);
 		City LittleRock = new City("Little Rock");
 		this.cities.add(LittleRock);
+		City LasVegas = new City("Las Vegas");
+		this.cities.add(LasVegas);
+		City StLouis = new City("St. Louis");
+		this.cities.add(StLouis);
+		City Charleston = new City("Charleston");
+		this.cities.add(Charleston);
+		City Raleigh = new City("Raleigh");
+		this.cities.add(Raleigh);
+		City Washington = new City("Washington");
+		this.cities.add(Washington);
 		
 		// TODO initialize all routes and put them into list
 		
