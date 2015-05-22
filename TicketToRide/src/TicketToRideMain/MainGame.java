@@ -6,6 +6,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.Insets;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -18,6 +21,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import TicketToRideMain.StartMenu.StartButtonHandler;
 
 public class MainGame extends JPanel {
 	private JLabel label;
@@ -85,13 +90,35 @@ public class MainGame extends JPanel {
 		}
 
 		game = new Game(frame.players);
-
+		
+		
+		setLayout(null);
+		//routePanel=routePanel();
+		//for(int i=0;i<58;i++){
+			JButton routeButton = new JButton(" ");
+			//RouteButtonHandler routeButtonHandler = new RouteButtonHandler(i);
+			//routeButton.addActionListener(routeButtonHandler);
+			JButton routeButton1 = new JButton(" ");
+			JButton routeButton2 = new JButton(" ");
+			JButton routeButton3 = new JButton(" ");
+			add(routeButton);
+			add(routeButton1);
+			add(routeButton2);
+			add(routeButton3);
+			Dimension size = routeButton.getPreferredSize();
+			
+			routeButton.setBounds(150, 80,size.width, size.height);
+			routeButton1.setBounds(300, 300,size.width, size.height);
+			routeButton2.setBounds(150, 180,size.width, size.height);
+			routeButton3.setBounds(150, 80,size.width, size.height);
+		//}
+		
 		trainCardPanel = new TrainCardPanel();
 		add(trainCardPanel);
 		trainCardPanel.setPosition();
 
 		ticketDraw(INITIAL_TICKETS);
-		setLayout(null);
+		
 	}
 
 	public void nextTurn() {
@@ -464,7 +491,7 @@ public class MainGame extends JPanel {
 				if (counter == 2) {
 					if (card.cardType == TrainCard.CARD_TYPE.WILD) {
 
-						counter -= 2;
+						counter = 0;
 					} else {
 						counter--;
 					}
@@ -482,4 +509,9 @@ public class MainGame extends JPanel {
 
 		}
 	}
+	
+	class RoutePanel extends JPanel {
+		
+	}
+	
 }
