@@ -1,5 +1,6 @@
 package TicketToRideMain;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 public class Game {
@@ -8,6 +9,11 @@ public class Game {
 	public ArrayList<Player> players = new ArrayList<Player>();
 	public TrainDeck trainDeck;
 	public TicketDeck ticketDeck;
+	
+	public int playerTurn;
+	public int ticketDrawTurn;
+	public int finalTurn;
+	
 	
 	//Default Game is two players
 	public Game(){
@@ -24,9 +30,16 @@ public class Game {
 		}
 		startGame();
 	}
-	public void startGame(){
+	private void startGame(){
+		trainDeck =new TrainDeck();
+		trainDeck.shuffle();
+		ticketDeck = new TicketDeck();
+		ticketDeck.shuffle();
+		
 		for(int i=0;i<playerNumber;i++){
 			players.add(new Player());
+			players.get(i).drawCardHand(trainDeck);
 		}
+		ticketDrawTurn=playerNumber;
 	}
 }

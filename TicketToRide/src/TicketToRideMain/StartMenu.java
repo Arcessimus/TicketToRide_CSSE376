@@ -2,9 +2,11 @@ package TicketToRideMain;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Insets;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
@@ -48,8 +50,18 @@ public class StartMenu extends JFrame {
 			} catch (IOException ex) {
 				System.out.println("Where's the background?");
 			}
+			
+			
+			setLayout(null);
 			for(int i=2;i<6;i++){
-				add(new ButtonPanel(i));
+				JButton startButton = new JButton(i + " Players");
+				StartButtonHandler startButtonHandler = new StartButtonHandler(i);
+				startButton.addActionListener(startButtonHandler);
+				add(startButton);
+				Insets insets = getInsets();
+				Dimension size = startButton.getPreferredSize();
+				startButton.setBounds(500+insets.left, 160+50*i + insets.top,
+			             size.width, size.height);
 			}
 		}
 
@@ -60,15 +72,7 @@ public class StartMenu extends JFrame {
 			g2.drawImage(background, 0, 0, null);
 		}
 	}
-	class ButtonPanel extends JPanel {
-		public ButtonPanel(int playerNumber) {
-			this.setOpaque(false);
-			JButton startButton = new JButton(playerNumber + " Players");
-			StartButtonHandler startButtonHandler = new StartButtonHandler(playerNumber);
-			startButton.addActionListener(startButtonHandler);
-			add(startButton);
-		}
-	}
+
 	class StartButtonHandler implements ActionListener {
 		int playerNumber;
 		public StartButtonHandler(int playerNumber){

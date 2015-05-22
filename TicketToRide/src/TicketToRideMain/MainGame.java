@@ -1,4 +1,5 @@
 package TicketToRideMain;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -8,6 +9,8 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -19,7 +22,8 @@ public class MainGame extends JPanel {
 	private Graphics2D g2;
 	private Image background = null;
 	//private JButton trainDeck;
-
+	Game game;
+	
 	private final int INITIAL_TICKETS=2;
 	
 	Image blackCar = null;
@@ -36,14 +40,13 @@ public class MainGame extends JPanel {
 	Image blueTrain=null;
 	Image greenTrain=null;
 	Image yellowTrain=null;
-	Image purpleTrain=null;
-	Image orangeTrain=null;
+	Image whiteTrain=null;
 	
 	
 	
 	public MainGame(StartMenu frame){
 		frame.setSize(WIDTH, HEIGHT);
-		
+		//frame.setResizable(false);
 		try {
 			this.background = ImageIO.read(new File("src/Ticket To Ride Board.jpg"));
 		} catch (IOException e) {
@@ -63,11 +66,10 @@ public class MainGame extends JPanel {
 			wildCar = ImageIO.read(new File("src/Wild Car.jpg"));
 			
 			redTrain = ImageIO.read(new File("src/Red Train.png"));
-			blueTrain = ImageIO.read(new File("src/Red Train.png"));
-			//greenTrain = ImageIO.read(new File("src/Red Train.png"));
-			yellowTrain = ImageIO.read(new File("src/Red Train.png"));
-			//purpleTrain = ImageIO.read(new File("src/Red Train.png"));
-			//orangeTrain = ImageIO.read(new File("src/Red Train.png"));
+			blueTrain = ImageIO.read(new File("src/Blue Train.png"));
+			greenTrain = ImageIO.read(new File("src/Green Train.png"));
+			yellowTrain = ImageIO.read(new File("src/Yellow Train.png"));
+			whiteTrain = ImageIO.read(new File("src/White Train.png"));
 		} catch (IOException e) {
 			System.out.println("Missing a train car image");
 			e.printStackTrace();
@@ -79,11 +81,11 @@ public class MainGame extends JPanel {
 		label.setOpaque(true);
 		add(label);
 		
-		Game game = new Game(frame.players);
+		game = new Game(frame.players);
 		for (int i=0;i<frame.players;i++){
-			//ticketDraw(INITIAL_TICKETS);
+			ticketDraw(INITIAL_TICKETS);
 		}
-		//playerTurn(1); //Starts with player 1
+		playerTurn(); 
 	}
 
 	@Override
@@ -100,19 +102,50 @@ public class MainGame extends JPanel {
 		g2.drawImage(whiteCar, 0,875,null);
 		g2.drawImage(wildCar, 200,875,null);
 		g2.drawImage(yellowCar, 400,875,null);
-		playerTurn(1);
 	}
 	
 	//
-	public void playerTurn(int playerNumber){
+	public void playerTurn(){
 		//Display Player Panel
-			g2.drawImage(redTrain, 600,780,null);
+		int playerNumber=game.playerTurn % game.playerNumber;
+		Image playerCar=null;
+		Player player=game.players.get(playerNumber);
+		
+		if(playerNumber==0){
+			playerCar=redTrain;
+		}else if(playerNumber==1){
+			playerCar=blueTrain;
+		}else if(playerNumber==2){
+			playerCar=yellowTrain;
+		}else if(playerNumber==3){
+			playerCar=greenTrain;
+		}else if(playerNumber==4){
+			playerCar=whiteTrain;
+		}
+		JButton button = new JButton(new ImageIcon(playerCar));
+		button.setBorder(BorderFactory.createEmptyBorder());
+		button.setContentAreaFilled(false);
+		
+		add(button);
+		//g2.drawImage(redTrain, 600,780,null);
 
 	}
-	public void ticketDraw(Player player, int minimumTicketsKept){
+	public void ticketDraw(int minimumTicketsKept){
+		TicketCard ticket1 = (TicketCard) game.ticketDeck.draw();
+		ticketButton button1 =new ticketButton(ticket1);
+		add(button1);
+		
 		//turn on actionListener
 		//Game.tickets.draw x3
 		//Player.chooseTicket x minTickets
+		game.ticketDrawTurn--;
+	}
+}
+
+class ticketButton extends JButton {
+	public ticketButton(TicketCard ticket){
+		deckListener listener = new deckListener();
+		this.addActionListener(listener);
 	}
 }
 
