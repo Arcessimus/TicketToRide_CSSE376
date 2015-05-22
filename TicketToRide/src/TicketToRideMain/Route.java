@@ -102,4 +102,12 @@ public class Route {
 		return this.smallGame;
 	}
 	
+
+	public City getOtherCity(City a) {
+		if(a.equals(this.cities.get(0)))
+			return this.cities.get(1);
+		
+		return this.cities.get(0);
+	}
+	
 }

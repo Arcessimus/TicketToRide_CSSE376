@@ -32,6 +32,7 @@ public class PathGraphTests {
 		City Vancouver = new City("Vancouver");
 		City Calgary = new City("Calgary");
 		int index1 = cities.indexOf(Vancouver);
+		System.out.print(index1);
 		int index2 = cities.indexOf(Calgary);
 		assertTrue(graph.connected(player1, cities.get(index1), cities.get(index2)));
 		

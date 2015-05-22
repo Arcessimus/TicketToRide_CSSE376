@@ -568,8 +568,43 @@ public class PathGraph {
 	{
 		return this.routes;
 	}
+	
 	public boolean connected(Player p, City a, City b)
 	{
+		if(a.equals(b))
+		{
+			this.visitedCities.clear();
+			this.visitedEdges.clear();
+			return true;
+		}
+
+		this.visitedCities.put(a.hashCode(), a);
+		
+		ArrayList<Route> ownedRoutesA = a.getOwnedEdges();
+		if(ownedRoutesA.size() == 0)
+			return false;
+		
+		ArrayList<Route> ownedRoutesB = b.getOwnedEdges();
+		if(ownedRoutesB.size() == 0)
+			return false;
+		
+		
+		for(int i = 0; i < ownedRoutesA.size(); i++)
+		{
+			if(ownedRoutesA.get(i).getOwner().equals(p))
+			{
+				if(!this.visitedEdges.containsValue(ownedRoutesA.get(i)))
+				{
+					this.visitedEdges.put(ownedRoutesA.get(i).hashCode(), ownedRoutesA.get(i));
+					City newA = ownedRoutesA.get(i).getOtherCity(a);
+					if(!this.visitedCities.containsValue(newA))
+					{
+						return connected(p, newA, b);
+					}
+				}
+			}
+		}
+		
 		return false;
 	}
 	
