@@ -24,6 +24,9 @@ public class PathGraphTests {
 		
 		PathGraph graph = new PathGraph(players);
 		
+		// TODO single route connection
+		// TODO two route connection
+		// TODO many route connection
 	}
 	
 	@Test
@@ -38,7 +41,7 @@ public class PathGraphTests {
 		
 		PathGraph graph = new PathGraph(players);
 		
-		
+		// TODO long path
 	}
 
 }
