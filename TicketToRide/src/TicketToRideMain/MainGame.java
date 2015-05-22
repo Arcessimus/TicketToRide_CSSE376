@@ -125,14 +125,15 @@ public class MainGame extends JPanel {
 		g2 = (Graphics2D) g;
 		g2.drawImage(background, 0, 0, null);
 		g2.drawImage(blackCar, 0, 685, null);
-		g2.drawImage(blueCar, 0, 780, null);
-		g2.drawImage(greenCar, 200, 685, null);
-		g2.drawImage(orangeCar, 200, 780, null);
-		g2.drawImage(purpleCar, 400, 685, null);
-		g2.drawImage(redCar, 400, 780, null);
-		g2.drawImage(whiteCar, 600, 685, null);
-		g2.drawImage(wildCar, 600, 780, null);
-		g2.drawImage(yellowCar, 800, 685, null);
+		g2.drawImage(blueCar, 200, 685, null);
+		g2.drawImage(greenCar, 400, 685, null);
+		g2.drawImage(orangeCar, 600, 685, null);
+		g2.drawImage(purpleCar, 800, 685, null);
+		g2.drawImage(redCar, 0, 780, null);
+		g2.drawImage(whiteCar, 200, 780, null);
+		g2.drawImage(wildCar, 400, 780, null);
+		g2.drawImage(yellowCar, 600, 780, null);
+		
 	}
 
 	public void ticketDraw(int minimumTicketsKept) {

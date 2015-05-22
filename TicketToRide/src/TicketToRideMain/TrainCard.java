@@ -2,7 +2,7 @@ package TicketToRideMain;
 
 
 public class TrainCard implements ICard {
-	public static enum CARD_TYPE {RED, BLACK,GREEN,YELLOW,BLUE,PURPLE,ORANGE,WHITE,WILD
+	public static enum CARD_TYPE {BLACK,BLUE,GREEN,ORANGE,PURPLE,RED,WHITE,WILD,YELLOW
 	}
 	
 	public CARD_TYPE cardType;
