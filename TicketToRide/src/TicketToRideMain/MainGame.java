@@ -6,7 +6,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -20,18 +19,18 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import TicketToRideMain.StartMenu.StartButtonHandler;
-
 public class MainGame extends JPanel {
 	private JLabel label;
 	private static final int HEIGHT = 1040; // 720;
 	private static final int WIDTH = 1350; // 1040;
 	private Graphics2D g2;
 	private Image background = null;
+	
 	private TicketPanel ticketPanel = null;
 	private PlayerPanel playerPanel = null;
-	private PlayerTrainCards playerTrainCards;
-	private PlayerTicketCards playerTicketCards;
+	private PlayerTrainCards playerTrainCards=null;
+	private PlayerTicketCards playerTicketCards=null;
+	private TrainCardPanel trainCardPanel=null;
 
 	Game game;
 
@@ -85,11 +84,14 @@ public class MainGame extends JPanel {
 			e.printStackTrace();
 		}
 
-		label = new JLabel(frame.players + " Players ");
-		label.setOpaque(true);
-		add(label);
-
 		game = new Game(frame.players);
+		
+		
+		
+		trainCardPanel=new TrainCardPanel();
+		add(trainCardPanel);
+		trainCardPanel.setPosition();
+		
 		ticketDraw(INITIAL_TICKETS);
 		setLayout(null);
 	}
@@ -134,9 +136,19 @@ public class MainGame extends JPanel {
 		g2.drawImage(wildCar, 200, 875, null);
 		g2.drawImage(yellowCar, 400, 875, null);
 	}
-
+	
+	public void ticketDraw(int minimumTicketsKept) {
+		int playerNumber = game.playerTurn % game.playerNumber;
+		ticketPanel = new TicketPanel(game.players.get(playerNumber),
+				minimumTicketsKept);
+		add(ticketPanel);
+		ticketPanel.setPosition();
+		game.ticketDrawTurn--;
+		game.playerTurn++;
+	}
+	
 	public void playerTurn() {
-		// Display Player Panel
+		// Display Player Panels
 		int playerNumber = game.playerTurn % game.playerNumber;
 		Image playerCar = null;
 		Player player = game.players.get(playerNumber);
@@ -282,16 +294,6 @@ public class MainGame extends JPanel {
 		}
 	}
 
-	public void ticketDraw(int minimumTicketsKept) {
-		int playerNumber = game.playerTurn % game.playerNumber;
-		ticketPanel = new TicketPanel(game.players.get(playerNumber),
-				minimumTicketsKept);
-		add(ticketPanel);
-		ticketPanel.setPosition();
-		game.ticketDrawTurn--;
-		game.playerTurn++;
-	}
-
 	class TicketPanel extends JPanel {
 		public JButton[] buttons = new JButton[3];
 		int minTickets;
@@ -362,12 +364,30 @@ public class MainGame extends JPanel {
 
 		}
 	}
-}
 
-class deckListener implements ActionListener {
-	public void actionPerformed(ActionEvent arg0) {
-		// something something draw card
-		JLabel drawLabel = new JLabel("Card drawn!");
-		drawLabel.setOpaque(true);
+	class TrainCardPanel extends JPanel {
+		TrainCardPanel(){
+			this.setLayout(new GridLayout(0, 1));
+			JLabel label = new JLabel("Face Up Train Cards:");
+			add(label);
+			for(ICard card : game.faceUpDeck.faceDeck){
+				JButton button = new JButton(((TrainCard)card).cardType.toString());
+				//actionListener
+				add(button);
+			}
+			JLabel blindDraw = new JLabel("Blind Draw:");
+			add(blindDraw);
+			JButton button = new JButton();
+			//actionListener
+			add(button);
+		}
+		public void setPosition() {
+			Dimension size = getPreferredSize();
+			setBounds(1100, 20, size.width, size.height);
+			repaint();
+			this.getParent().repaint();
+			updateUI();
+		}
 	}
 }
+

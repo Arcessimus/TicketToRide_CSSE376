@@ -32,5 +32,6 @@ public class GameTest {
 		
 		assertNotNull(game.ticketDeck);
 		assertNotNull(game.trainDeck);
+		//assertNotNull(game.faceUpDeck);
 	}
 }

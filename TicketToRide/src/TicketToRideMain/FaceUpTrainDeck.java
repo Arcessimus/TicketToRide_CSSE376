@@ -5,16 +5,16 @@ import java.util.ArrayList;
 public class FaceUpTrainDeck extends Deck {
 	
 	Deck referenceDeck;
-	ArrayList<ICard> faceDeck;
+	public ArrayList<ICard> faceDeck=new ArrayList<ICard>();
 	
 	public FaceUpTrainDeck(Deck mainDeck) {
-		this.referenceDeck = mainDeck;
-		this.faceDeck = new ArrayList<ICard>();
+		init(mainDeck);
 	}
 	
-	protected void init() {
+	protected void init(Deck mainDeck) {
+		this.referenceDeck = mainDeck;
 		for(int i = 0; i < 5; i++) {
-			this.faceDeck.add(this.referenceDeck.draw());
+			this.faceDeck.add(referenceDeck.draw());
 		}
 	}
 	

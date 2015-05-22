@@ -9,6 +9,7 @@ public class Game {
 	public ArrayList<Player> players = new ArrayList<Player>();
 	public TrainDeck trainDeck;
 	public TicketDeck ticketDeck;
+	public FaceUpTrainDeck faceUpDeck;
 	
 	public int playerTurn;
 	public int ticketDrawTurn;
@@ -42,6 +43,8 @@ public class Game {
 			players.add(new Player());
 			players.get(i).drawCardHand(trainDeck);
 		}
+		faceUpDeck = new FaceUpTrainDeck(trainDeck);
+		
 		ticketDrawTurn=playerNumber;
 	}
 }
