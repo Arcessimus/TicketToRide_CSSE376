@@ -29,24 +29,15 @@ public class PathGraphTests {
 		
 		//single route connection
 		routes.get(0).setOwner(player1);
-		City Vancouver = new City("Vancouver");
-		City Calgary = new City("Calgary");
-		int index1 = cities.indexOf(Vancouver);
-		System.out.print(index1);
-		int index2 = cities.indexOf(Calgary);
-		assertTrue(graph.connected(player1, cities.get(index1), cities.get(index2)));
+		assertTrue(graph.connected(player1, cities.get(27), cities.get(2)));
 		
 		//two route connection
 		routes.get(1).setOwner(player1);
-		City Seattle = new City("Seattle");
-		index2 = cities.indexOf(Seattle);
-		assertTrue(graph.connected(player1, cities.get(index1), cities.get(index2)));
+		assertTrue(graph.connected(player1, cities.get(27), cities.get(25)));
 		
 		//many route connection
 		routes.get(4).setOwner(player1);
-		City Helena = new City("Helena");
-		index2 = cities.indexOf(Helena);
-		assertTrue(graph.connected(player1, cities.get(index1), cities.get(index2)));
+		assertTrue(graph.connected(player1, cities.get(27), cities.get(15)));
 	}
 	
 	@Test
