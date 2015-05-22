@@ -254,7 +254,7 @@ public class MainGame extends JPanel {
 			this.setOpaque(false);
 			this.setLayout(new GridLayout(0, 5, 146, 70));
 			for (int i = 0; i < 9; i++) {
-				JButton cardCount = new JButton("x" + 1);
+				JButton cardCount = new JButton("x" + player.countCardTypes()[i]);
 				// cardCount.addActionListener(cardCountHandler);
 				add(cardCount);
 			}

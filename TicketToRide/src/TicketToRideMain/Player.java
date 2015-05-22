@@ -46,6 +46,19 @@ public class Player {
 		cards.add(card);
 	}
 	public int[] countCardTypes(){
-		return null;
+		int[] array = new int[9];
+		for(int i : array){
+			array[i]=0;
+		}
+		int j=0;
+		for(TrainCard.CARD_TYPE type : TrainCard.CARD_TYPE.values()){
+			for(ICard card : cards){
+				if(((TrainCard)card).cardType==type){
+					array[j]++;
+				}
+			}
+			j++;
+		}
+		return array;
 	}
 }

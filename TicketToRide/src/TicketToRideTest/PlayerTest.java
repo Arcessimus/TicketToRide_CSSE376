@@ -54,12 +54,8 @@ public class PlayerTest {
 	public void testCountCardTypes(){
 		Player player = new Player();
 		TrainCard card1=new TrainCard(TrainCard.CARD_TYPE.BLACK);
-		player.tickets.add(card1);
-		int[] array = new int[9];
-		for(int i : array){
-			i=0;
-		}
-		array[0]=1;
-		assertEquals(array,player.countCardTypes());
+		player.cards.add(card1);
+
+		assertEquals(1,player.countCardTypes()[0]);
 	}
 }
