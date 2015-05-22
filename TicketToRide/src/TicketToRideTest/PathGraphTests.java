@@ -28,14 +28,17 @@ public class PathGraphTests {
 		ArrayList<Route> routes = graph.getRoutes();
 		
 		//single route connection
+		//testing from Vancouver to Calgary
 		routes.get(0).setOwner(player1);
 		assertTrue(graph.connected(player1, cities.get(27), cities.get(2)));
 		
 		//two route connection
+		//Testing from Vancouver to Calgary to Seattle
 		routes.get(1).setOwner(player1);
 		assertTrue(graph.connected(player1, cities.get(27), cities.get(25)));
 		
-		//many route connection
+		//three route connection
+		//Testing from Vancouver to Calgary to Seattle to Helena
 		routes.get(4).setOwner(player1);
 		assertTrue(graph.connected(player1, cities.get(27), cities.get(15)));
 	}
@@ -46,13 +49,18 @@ public class PathGraphTests {
 		Player player2 = new Player();
 		
 		ArrayList<Player> players = new ArrayList<Player>();
+		PathGraph graph = new PathGraph(players);
+		ArrayList<Route> routes = graph.getRoutes();
 		
 		players.add(player1);
 		players.add(player2);
 		
-		PathGraph graph = new PathGraph(players);
 		
-		// TODO long path
+		//long path
+		routes.get(0).setOwner(player1);
+		routes.get(1).setOwner(player1);
+		routes.get(4).setOwner(player1);
+		assertEquals(player1, graph.longestPathOwner());
 	}
 
 }

@@ -2,7 +2,6 @@ package TicketToRideMain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Stack;
 
 public class PathGraph {
 	
@@ -10,7 +9,6 @@ public class PathGraph {
 	ArrayList<City> cities;
 	HashMap<Integer, Route> visitedEdges;
 	HashMap<Integer, City> visitedCities;
-	Stack<City> stack;
 	ArrayList<Player> players;
 	
 	public PathGraph(ArrayList<Player> players)
@@ -19,7 +17,6 @@ public class PathGraph {
 		this.cities = new ArrayList<City>();
 		this.visitedEdges = new HashMap<Integer, Route>();
 		this.visitedCities = new HashMap<Integer, City>();
-		this.stack = new Stack<City>();
 		
 		this.players = players;
 		
