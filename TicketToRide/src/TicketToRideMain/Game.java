@@ -36,6 +36,8 @@ public class Game {
 		ticketDeck = new TicketDeck();
 		ticketDeck.shuffle();
 		
+		ticketDrawTurn=playerNumber;
+		
 		for(int i=0;i<playerNumber;i++){
 			players.add(new Player());
 			players.get(i).drawCardHand(trainDeck);
