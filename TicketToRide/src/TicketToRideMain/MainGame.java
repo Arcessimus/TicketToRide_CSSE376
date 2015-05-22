@@ -21,8 +21,8 @@ import javax.swing.JPanel;
 
 public class MainGame extends JPanel {
 	private JLabel label;
-	private static final int HEIGHT = 1040; // 720;
-	private static final int WIDTH = 1350; // 1040;
+	private static final int HEIGHT = 900; // 720;
+	private static final int WIDTH = 1600; // 1040;
 	private Graphics2D g2;
 	private Image background = null;
 	
@@ -132,9 +132,9 @@ public class MainGame extends JPanel {
 		g2.drawImage(orangeCar, 200, 780, null);
 		g2.drawImage(purpleCar, 400, 685, null);
 		g2.drawImage(redCar, 400, 780, null);
-		g2.drawImage(whiteCar, 0, 875, null);
-		g2.drawImage(wildCar, 200, 875, null);
-		g2.drawImage(yellowCar, 400, 875, null);
+		g2.drawImage(whiteCar, 600, 685, null);
+		g2.drawImage(wildCar, 600, 780, null);
+		g2.drawImage(yellowCar, 800, 685, null);
 	}
 	
 	public void ticketDraw(int minimumTicketsKept) {
@@ -208,7 +208,7 @@ public class MainGame extends JPanel {
 
 		public void setPosition() {
 			Dimension size = getPreferredSize();
-			setBounds(650, 685, size.width, size.height);
+			setBounds(1040, 685, size.width, size.height);
 			repaint();
 			this.getParent().repaint();
 			updateUI();
@@ -248,7 +248,7 @@ public class MainGame extends JPanel {
 		public PlayerTrainCards(Player currentPlayer) {
 			player = currentPlayer;
 			this.setOpaque(false);
-			this.setLayout(new GridLayout(3, 3, 152, 70));
+			this.setLayout(new GridLayout(0, 5, 152, 70));
 			for (int i = 0; i < 9; i++) {
 				JButton cardCount = new JButton("x" + 0);
 				// cardCount.addActionListener(cardCountHandler);
@@ -287,7 +287,7 @@ public class MainGame extends JPanel {
 
 		public void setPosition() {
 			Dimension size = getPreferredSize();
-			setBounds(900, 685, size.width, size.height);
+			setBounds(1040, 400, size.width, size.height);
 			repaint();
 			this.getParent().repaint();
 			updateUI();
@@ -331,7 +331,7 @@ public class MainGame extends JPanel {
 
 		public void setPosition() {
 			Dimension size = getPreferredSize();
-			setBounds(1040, 500, size.width, size.height);
+			setBounds(1040, 250, size.width, size.height);
 			repaint();
 			this.getParent().repaint();
 			updateUI();
