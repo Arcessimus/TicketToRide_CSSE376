@@ -109,8 +109,8 @@ public class MainGame extends JPanel {
 			
 			routeButton.setBounds(280, 140,size.width, size.height);
 			routeButton1.setBounds(240, 400,size.width, size.height);
-			routeButton2.setBounds(200, 490,size.width, size.height);
-			routeButton3.setBounds(350, 50,size.width, size.height);
+			routeButton2.setBounds(470, 500,size.width, size.height);
+			routeButton3.setBounds(370, 500,size.width, size.height);
 		//}
 		
 		trainCardPanel = new TrainCardPanel();
