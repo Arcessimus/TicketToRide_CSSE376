@@ -9,6 +9,7 @@ import org.junit.Test;
 import TicketToRideMain.City;
 import TicketToRideMain.PathGraph;
 import TicketToRideMain.Player;
+import TicketToRideMain.Route;
 
 public class PathGraphTests {
 
@@ -23,10 +24,28 @@ public class PathGraphTests {
 		players.add(player2);
 		
 		PathGraph graph = new PathGraph(players);
+		ArrayList<City> cities = graph.getCities();
+		ArrayList<Route> routes = graph.getRoutes();
 		
-		// TODO single route connection
-		// TODO two route connection
-		// TODO many route connection
+		//single route connection
+		routes.get(0).setOwner(player1);
+		City Vancouver = new City("Vancouver");
+		City Calgary = new City("Calgary");
+		int index1 = cities.indexOf(Vancouver);
+		int index2 = cities.indexOf(Calgary);
+		assertTrue(graph.connected(player1, cities.get(index1), cities.get(index2)));
+		
+		//two route connection
+		routes.get(1).setOwner(player1);
+		City Seattle = new City("Seattle");
+		index2 = cities.indexOf(Seattle);
+		assertTrue(graph.connected(player1, cities.get(index1), cities.get(index2)));
+		
+		//many route connection
+		routes.get(4).setOwner(player1);
+		City Helena = new City("Helena");
+		index2 = cities.indexOf(Helena);
+		assertTrue(graph.connected(player1, cities.get(index1), cities.get(index2)));
 	}
 	
 	@Test

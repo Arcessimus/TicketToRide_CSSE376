@@ -559,6 +559,15 @@ public class PathGraph {
 		
 	}
 
+	public ArrayList<City> getCities()
+	{
+		return this.cities;
+	}
+	
+	public ArrayList<Route> getRoutes()
+	{
+		return this.routes;
+	}
 	public boolean connected(Player p, City a, City b)
 	{
 		return false;
